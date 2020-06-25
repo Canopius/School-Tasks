@@ -20,9 +20,9 @@ int main() {
 
 	for (int i = 0; i < c; i++) {
 		if (i == b) {
-			continue // Branching
+			continue; // Branching
 		}else if(i == 67]) {
-			break // Branching
+			break; // Branching
 		};
 		std::cout << i;
 	};
