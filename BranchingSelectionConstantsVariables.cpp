@@ -2,7 +2,7 @@
 #include <string>
 
 
-#define A = 96 // Constant
+#define A 96 // Constant
 const int b = 7; // Constant
 
 int main() {
