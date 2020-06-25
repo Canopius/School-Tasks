@@ -11,11 +11,11 @@ int main() {
 
 	// Selection
 	if (b < c) {
-		std::cout << b << " < " << c;
+		std::cout << b << " < " << c << std::endl;
 	} else if (b > c) {
-		std::cout << b << " > " << c;
+		std::cout << b << " > " << c << std::endl;
 	} else {
-		std::cout << b << " == " << c;
+		std::cout << b << " == " << c << std::endl;
 	};
 
 	for (int i = 0; i < c; i++) {
@@ -24,7 +24,7 @@ int main() {
 		}else if(i == 67) {
 			break; // Branching
 		};
-		std::cout << i;
+		std::cout << i << std::endl;
 	};
 
 }
