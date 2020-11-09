@@ -1,0 +1,75 @@
+.main {
+    display: grid;
+   
+    grid-template-rows: 150px 400px 400px;
+    grid-gap: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+  }
+
+  .main > div {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+ .top{
+    display: grid;
+    border: 5px solid #092a44;
+    grid-template-rows: 100%;
+    grid-template-columns: 2% 94% 2%;
+    grid-gap: 1%;
+    padding: 0px; 
+ }
+
+ .top > div{
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    grid-column: 2;
+ }
+
+  .middle{
+    display: grid;
+   
+    grid-template-rows: 28% 43% 28%;
+    grid-template-columns: 2% 20.6666% 10% 20.6666% 30.6666% 2%;
+    grid-gap: 1%;
+    padding: 0px;
+  }
+  
+  
+  .middle > div {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+.tall{
+    grid-column: 2;
+    grid-row: 1/4;
+    border: 15px solid #092a44;
+}
+
+.short{
+    grid-column: 4 / 6;
+    grid-row: 2;
+    border: 5px solid #092a44;
+}
+
+.bottom{
+    display: grid;
+    grid-template-rows: 49.5% 49.5%;
+    grid-template-columns: 1.5% 23% 23% 23% 23% 1.5%;
+    grid-gap: 1%;
+}
+
+.bottom > div {
+    text-align: center;
+    padding: 5px 0;
+    font-size: 30px;
+  }
+
+.show{
+  border: 5px solid #092a44;
+}

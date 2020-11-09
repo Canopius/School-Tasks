@@ -6,3 +6,4 @@ print("There are: {} vowel(s) and {} consonant(s)".format(len(findOccurrences(Wo
 Reverse = Word[::-1]
 x = lambda a, b: a == b
 print(x(Word, Reverse))
+    
