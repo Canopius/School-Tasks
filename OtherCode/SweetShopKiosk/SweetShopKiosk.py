@@ -1,4 +1,5 @@
 import pyinputplus as pyip
+from datetime import *
 
 ShopInventory = {"Red Sweet": 0.5, "Green Sweet" : 0.5, "Blue Sweet" : 0.5}
 ShoppingBasket = {}
@@ -35,7 +36,19 @@ def ContinueShopping():
     else:
         return True
 
+def DeliveryDate():
+    Today = date.today()
+    Delivery = pyip.inputDate(prompt= "\nWhen would you like your order delivered? (YYYY/MM/DD) ")
+    x = (Delivery - Today).total_seconds()
+    
+    if x > 86400:
+        return Delivery
+    else:
+        return False
+
+
 def Main():
+    
     MoreItems = True
     while MoreItems:
         ChooseProduct()
@@ -44,7 +57,19 @@ def Main():
 
     print("\nGrand Total: £{}".format(CalculateTotal()))
 
+    NoDate = True
+    while NoDate:
+        Date = DeliveryDate()
+        if Date:
+            print("\nYour delivery will arrive on {}".format(Date))
+            NoDate = False
+        else:
+            print("\nIt takes at least 1 day to deliver your order, please select a different date.")
+
+Main()
+"""
 try:
     Main()
 except:
     print("\nAn error has occured\n")
+"""
