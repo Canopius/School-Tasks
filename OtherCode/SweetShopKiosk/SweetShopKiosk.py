@@ -7,7 +7,11 @@ Item, Qty= False, False
 
 
 def ChooseProduct():
-    Item = pyip.inputMenu(["Red Sweet", "Green Sweet", "Blue Sweet"], prompt = "\nPlease select one of the following:\n", numbered = True)
+    Choices = []
+    for x in ShopInventory:
+        Choices.append(x)
+
+    Item = pyip.inputMenu(Choices, prompt = "\nPlease select one of the following:\n", numbered = True)
     Qty = pyip.inputInt(prompt = "\nQty: ", min=1)
 
     if Item in ShoppingBasket:
