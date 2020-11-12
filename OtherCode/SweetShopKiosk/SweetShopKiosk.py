@@ -48,7 +48,6 @@ def DeliveryDate():
 
 
 def Main():
-    
     MoreItems = True
     while MoreItems:
         ChooseProduct()
@@ -66,10 +65,7 @@ def Main():
         else:
             print("\nIt takes at least 1 day to deliver your order, please select a different date.")
 
-Main()
-"""
 try:
     Main()
 except:
     print("\nAn error has occured\n")
-"""
