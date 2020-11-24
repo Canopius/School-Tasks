@@ -16,9 +16,18 @@ class smartBlind:
     def toggleOpen(self):
         self.open = not self.open
 
+class smartHeating:
+    def __init__(self, temp):
+        self.temp = temp
+
+    def changeTemp(self, newTemp)
+        self.temp = newTemp
+
 def main():
     a = smartBlind(True)
     b = smartLight(0.5, [255,255,255])
+    c = smartBlind(True)
+    d = smartBlind(False)
     
 try:
     main()
