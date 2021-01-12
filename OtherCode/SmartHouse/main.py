@@ -28,7 +28,7 @@ def main():
     b = smartLight(0.5, [255,255,255])
     c = smartBlind(True)
     d = smartBlind(False)
-    
+
 try:
     main()
 except:
