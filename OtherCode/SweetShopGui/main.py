@@ -22,6 +22,28 @@ class Application(tk.Frame):
         button.pack(side=location)
         return button
 
+class ShopApplication(Application):
+    def __init__(self, master=None):
+        super().__init__(master)
+        self.master = master
+        self.pack()
+
+        self.Sweets = []
+
+        with open('stock.csv', 'r', newline='')  as csvfile:
+            reader = csv.reader(csvfile, delimiter=",")
+            for i, line in enumerate(reader):
+                sweetName = self.createLabel(line[0], "top")
+                sweetPrice = self.createLabel("£" + line[1], "top")
+                sweetQty = self.createEntry("Qty", "top")
+                sweetBuy = self.createButton("Buy", "top")
+
+                self.Sweets.append(sweetName)
+                self.Sweets.append(sweetPrice)
+                self.Sweets.append(sweetQty)
+                self.Sweets.append(sweetBuy)
+
+
 class LoginApplication(Application):
     def __init__(self, master=None):
         super().__init__(master)
@@ -47,13 +69,13 @@ class LoginApplication(Application):
         ShowSignUp()
         
     def verifyCreds(self):
-
         with open('creds.csv', 'r', newline='')  as csvfile:
             reader = csv.reader(csvfile, delimiter=",")
             for i, line in enumerate(reader):
-                print(line[0], self.userInput.get())
                 if line[0] == self.userInput.get():
-                    return CheckPassword(line[1],self.passwordInput.get())
+                    if CheckPassword(line[1],self.passwordInput.get()):
+                        ShowShop()
+                        return True
                     
         print("Username not found")
         return False
@@ -107,6 +129,11 @@ def ShowSignUp():
 def ShowLogin():
     root = tk.Tk()
     app = LoginApplication(master=root)
+    app.mainloop()
+
+def ShowShop():
+    root = tk.Tk()
+    app = ShopApplication(master=root)
     app.mainloop()
 
 def HashPassword(password):
