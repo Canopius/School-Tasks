@@ -47,8 +47,17 @@ class LoginApplication(Application):
         ShowSignUp()
         
     def verifyCreds(self):
-        print(self.userInput.get())
-        print(self.passwordInput.get())
+
+        with open('creds.csv', 'r', newline='')  as csvfile:
+            reader = csv.reader(csvfile, delimiter=",")
+            for i, line in enumerate(reader):
+                print(line[0], self.userInput.get())
+                if line[0] == self.userInput.get():
+                    return CheckPassword(line[1],self.passwordInput.get())
+                    
+        print("Username not found")
+        return False
+        
 
 
 class SignUp(Application):
