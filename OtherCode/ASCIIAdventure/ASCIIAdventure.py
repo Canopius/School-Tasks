@@ -31,7 +31,7 @@ class Person:
 			Distance[a] = 0
 			for _,d in Houses[a].items():
 				for _,f in self.Stats.items():
-					Distance[a] = abs(d-f)
+					Distance[a] += abs(d-f)
 
 		Lowest = None
 		House = None
