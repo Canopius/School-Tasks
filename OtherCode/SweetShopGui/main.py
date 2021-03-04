@@ -28,20 +28,32 @@ class ShopApplication(Application):
         self.master = master
         self.pack()
 
-        self.Sweets = []
+        self.Stock = {}
+
+        self.SubTotal = 0
 
         with open('stock.csv', 'r', newline='')  as csvfile:
             reader = csv.reader(csvfile, delimiter=",")
             for i, line in enumerate(reader):
+
+                self.Stock[line[i]] = []
+
                 sweetName = self.createLabel(line[0], "top")
                 sweetPrice = self.createLabel("£" + line[1], "top")
                 sweetQty = self.createEntry("Qty", "top")
-                sweetBuy = self.createButton("Buy", "top")
 
-                self.Sweets.append(sweetName)
-                self.Sweets.append(sweetPrice)
-                self.Sweets.append(sweetQty)
-                self.Sweets.append(sweetBuy)
+                AddToCart = self.createButton("Add To Cart", "top")
+                AddToCart["command"] = self.AddToCart
+
+                self.Stock[line[i]].append(sweetName)
+                self.Stock[line[i]].append(sweetPrice)
+                self.Stock[line[i]].append(sweetQty)
+                self.Stock[line[i]].append(AddToCart)
+
+        self.SubTotalLabel = self.createLabel("Sub-Total: £0.00", "top")
+
+    def AddToCart():
+        print("Nothing yet")
 
 
 class LoginApplication(Application):
