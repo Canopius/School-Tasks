@@ -10,8 +10,8 @@ Houses = {
 }
 
 Questions = {
-	"Are you funny?" : {"Funny" : 10, "Intelligent" : 2},
-	"Are you intelligent?" : {"Funny" : -5, "Intelligent" : 2},
+	"[0 - 10] Are you funny?" : {"Funny" : 10, "Intelligent" : 2},
+	"[0 - 10] Are you intelligent?" : {"Funny" : -5, "Intelligent" : 2},
 }
 
 class Person:
@@ -36,7 +36,6 @@ class Person:
 		Lowest = None
 		House = None
 		for a,b in Distance.items():
-			print(b)
 			if Lowest == None:
 				Lowest = b
 				House = a
@@ -48,6 +47,9 @@ class Person:
 		return House
 
 if __name__ == "__main__":
-	foo = Person()
-	foo.AskQuestions()
-	print(foo.FindHouse())
+	try:
+		foo = Person()
+		foo.AskQuestions()
+		print(foo.FindHouse())
+	except:
+		print("An error has occured")
